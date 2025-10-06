@@ -24,7 +24,7 @@ function App() {
         </a>
       </div>
       <h1 className="text-white text-6xl font-bold mb-16">Vite + React</h1>
-      <h3> Ilham Adi </h3>
+      <h3> Fahrial Septian </h3>
       <div className="text-sm space-y-6 mb-8">
         <button 
         onClick={() => setCount((count) => count + 1)}
