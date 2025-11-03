@@ -1,7 +1,12 @@
+// Lokasi: src/UserCard.jsx
+
 import React, { useState } from "react";
 
 function UserCard(props) {
-  const { name, email, street, city } = props;
+  // 1. Gunakan 'Rest Parameter' (...rest) untuk properti sisa [cite: 449]
+  const { name, email, street, city, ...rest } = props;
+  
+  // 2. State untuk tombol (kode ini sudah ada di file Anda)
   const [clicked, setClicked] = useState(false);
 
   return (
@@ -14,10 +19,18 @@ function UserCard(props) {
         <span className="font-medium">Address:</span> {street}, {city}
       </p>
 
+      {/* 3. Tampilkan data tambahan dari 'rest' parameter [cite: 622-626] */}
+      {Object.entries(rest).map(([key, value]) => (
+        <p key={key} className="text-gray-600">
+          <span className="font-medium capitalize">{key}:</span> {value}
+        </p>
+      ))}
+
+      {/* 4. Tombol dengan state */}
       <button
-        className={`${
-          clicked ? "bg-green-600" : "bg-gray-500"
-        } text-white p-2 rounded-md`}
+        className={`mt-4 text-white p-2 rounded-md ${
+          clicked ? "bg-green-600" : "bg-gray-500" 
+        }`}
         onClick={() => setClicked(true)}
       >
         {clicked ? "Tombol sudah diklik" : "Silakan Klik"}
@@ -27,15 +40,3 @@ function UserCard(props) {
 }
 
 export default UserCard;
-
-/*
-Catatan soal Langkah 5: Var / Let / Const
-
-Di semua kode ini, saya udah ngikutin best practice dari dokumennya. 
-Saya cuma pakai `const` (kayak const { name... } dan const [clicked... ]).
-
-Alasannya karea nilai-nilai ini (data props yg di-destrukturisasi 
-sama array dari useState) itu gak pernah saya assign ulang nilainya 
-secara langsung. Ini bikin kode saya jadi lebih aman dan ngurangin 
-risiko bug aneh-aneh.
-*/
