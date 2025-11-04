@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import './PostCard.css';
-import postsData from './postsData';
+import React, { useState } from "react";
+import "./PostCard.css";
 
-const PostCard = ({ id, userId, title, body }) => {
+const PostCard = ({ title, body }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleButtonClick = () => {
@@ -11,18 +10,14 @@ const PostCard = ({ id, userId, title, body }) => {
 
   return (
     <div className="post-card">
-      <div className="post-header">
-      <center><h3 className="post-title">{title}</h3> </center>
-      </div>
-      <div className="post-body">
-        <p className="post-content">{body}</p>
-      </div>
+      <h3 className="post-title">{title}</h3>
+      <p className="post-content">{body}</p>
       <div className="post-footer">
-        <button 
-          className={`post-button ${isClicked ? 'clicked' : ''}`}
+        <button
+          className={`post-button ${isClicked ? "clicked" : ""}`}
           onClick={handleButtonClick}
         >
-          {isClicked ? 'Tombol sudah diklik' : 'Silakan Klik'}
+          {isClicked ? "Tombol sudah diklik" : "Silakan Klik"}
         </button>
       </div>
     </div>

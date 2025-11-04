@@ -1,4 +1,3 @@
-/* Design Token dari soal no 1 */
 :root {
   --special-red2: #b83016;
   --hover-pink: #ffe6e6;
@@ -7,96 +6,65 @@
   --border-color: #dee2e6;
   --shadow-color: rgba(0, 0, 0, 0.1);
 }
-
 .post-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 10px;
+  border-radius: 8px;
+  padding: 12px;
   background-color: white;
   box-shadow: 0 1px 3px var(--shadow-color);
   transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 180px;
+  max-width: 240px; /* 🔥 ini kunci */
 }
 
 .post-card:hover {
-  transform: scale(1.02);
-  border: 2px solid var(--color-defaultBlack);
+  transform: scale(1.03);
+  border: 2px solid var(--special-red2);
   background-color: var(--hover-pink);
   box-shadow: 0 4px 8px var(--shadow-color);
 }
 
-.post-header {
-  margin-bottom: 6px;
-}
-
 .post-title {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: #333;
-  margin: 0 0 4px 0;
-  line-height: 1.2;
-  display: -webkit-box;
-  overflow: hidden;
-}
-
-.post-meta {
-  color: #888;
-  font-size: 0.7rem;
-}
-
-.post-body {
-  flex: 1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 .post-content {
   color: #666;
   line-height: 1.3;
-  margin: 0;
-  font-size: 0.75rem;
-  display: -webkit-box;
-  overflow: hidden;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  text-align: justify;
 }
 
 .post-footer {
   display: flex;
-  justify-content: center; 
-  align-items: center;
-  margin-top: auto;
-  padding: 8px 0;
+  justify-content: center;
 }
 
 .post-button {
-  padding: 10px 20px; 
+  padding: 8px 18px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
-  font-size: 0.6rem; /* Font lebih besar */
-  min-width: 210px; /* Lebar minimum */
-  
-  /* Default state (belum diklik) */
+  font-size: 0.7rem;
   background-color: var(--gray-color);
   color: white;
 }
 
-/* State ketika tombol sudah diklik */
 .post-button.clicked {
   background-color: var(--special-red2);
-  color: white;
 }
 
-/* Hover effect untuk tombol */
 .post-button:hover {
   background-color: var(--hover-light-red);
   transform: scale(1.05);
-}
-
-/* Hover effect khusus untuk tombol yang sudah diklik */
-.post-button.clicked:hover {
-  background-color: var(--hover-light-red);
 }
